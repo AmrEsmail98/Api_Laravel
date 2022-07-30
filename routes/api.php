@@ -32,11 +32,12 @@ Route::group([
 
 
 Route::middleware(['jwt.verify'])->group(function(){
-    
+
     Route::get('/posts',[PostController::class,'index']);
     Route::get('/post/{id}',[PostController::class,'show']);
     Route::post('/post/create',[PostController::class,'store']);
     Route::post('/post/update/{id}',[PostController::class,'update']);
+    Route::post('/post/delete/{id}',[PostController::class,'destroy']);
     Route::post('/post/delete/{id}',[PostController::class,'destroy']);
 });
 
